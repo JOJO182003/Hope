@@ -81,3 +81,39 @@ public class Feedback {
     }
 
 }
+
+
+
+/*
+@Entity
+@Table(name = "feedback", schema = "hope")
+public class Feedback {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Integer id;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "tool_id", nullable = false)
+    private Tool tool;
+
+    @NotBlank(message = "Le commentaire est obligatoire.")
+    @Size(max = 1000, message = "Le commentaire ne peut pas dépasser 1000 caractères.")
+    @Lob
+    @Column(name = "commentaire", nullable = false)
+    private String commentaire;
+
+    @ColumnDefault("curdate()")
+    @PastOrPresent(message = "La date doit être aujourd'hui ou dans le passé.")
+    @Column(name = "date")
+    private LocalDate date;
+
+    // Getters et Setters
+}
+*/
