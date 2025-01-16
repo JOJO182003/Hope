@@ -1,9 +1,20 @@
 package Hope.model;
 
 import jakarta.persistence.*;
-
+/*
+@Entity
+@Table(name = "tool")*/
 @Entity
 @Table(name = "tool")
+@NamedQueries({
+    @NamedQuery(
+        name = "Tool.search",
+        query = "SELECT t FROM Tool t WHERE " +
+                "LOWER(t.titre) LIKE LOWER(CONCAT('%', :query, '%')) OR " +
+                "LOWER(t.domaine) LIKE LOWER(CONCAT('%', :query, '%')) OR " +
+                "LOWER(t.descriptionSimple) LIKE LOWER(CONCAT('%', :query, '%'))"
+    )
+})
 public class Tool {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
