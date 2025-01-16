@@ -2,8 +2,17 @@ package Hope.model;
 
 import jakarta.persistence.*;
 
+/*
+@Entity
+@Table(name = "user")*/
 @Entity
 @Table(name = "user")
+@NamedQueries({
+    @NamedQuery(
+        name = "User.findUserByUsername",
+        query = "SELECT u FROM User u WHERE u.username = :username"
+    )
+})
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
