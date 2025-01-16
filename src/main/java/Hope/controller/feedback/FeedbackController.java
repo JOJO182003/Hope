@@ -33,25 +33,21 @@ public class FeedbackController {
 
 /*
     @PostMapping("/addComment/{id}")
-    public String addComment(@PathVariable int id, String comment, Principal principal, RedirectAttributes redirectAttributes) {
+    public ResponseEntity<?> addComment(@PathVariable int id, @RequestBody String comment, Principal principal) {
         if (principal == null) {
-            redirectAttributes.addFlashAttribute("error", "Veuillez vous connecter pour ajouter un commentaire.");
-            return "redirect:/login";
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Veuillez vous connecter pour ajouter un commentaire.");
         }
         try {
             User user = homeService.getUser(principal.getName());
             feedbackService.addComment(id, user, comment);
-            redirectAttributes.addFlashAttribute("success", "Commentaire ajouté avec succès.");
-            return "redirect:/details/" + id;
+            return ResponseEntity.ok("Commentaire ajouté avec succès.");
         } catch (FeedbackNotFoundException ex) {
-            redirectAttributes.addFlashAttribute("error", ex.getMessage());
-            return "redirect:/error";
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
         } catch (UnauthorizedException ex) {
-            redirectAttributes.addFlashAttribute("error", ex.getMessage());
-            return "redirect:/login";
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(ex.getMessage());
         } catch (Exception ex) {
-            redirectAttributes.addFlashAttribute("error", "Une erreur inattendue s'est produite.");
-            return "redirect:/error";
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Une erreur inattendue s'est produite.");
         }
     }
+
 */
