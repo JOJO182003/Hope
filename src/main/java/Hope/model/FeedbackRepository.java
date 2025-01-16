@@ -9,7 +9,7 @@ import java.util.List;
 public interface FeedbackRepository extends JpaRepository<Feedback,Long> {
 
 
-    @Query(value = "SELECT * FROM feedback WHERE tool_id = ?", nativeQuery = true)
+    /*@Query(value = "SELECT * FROM feedback WHERE tool_id = ?", nativeQuery = true)*/
     List<Feedback> findAllByToolId(int id);
 
     @Modifying
