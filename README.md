@@ -81,7 +81,7 @@ L’application est accessible via une URL publique. Vous pouvez tester toutes s
    ```
 2. Naviguez dans le répertoire du projet :
    ```bash
-   cd HOPE_project
+   cd HOPE
    ```
 3. Configurez votre base de données MariaDB avec le fichier SQL fourni :
    ```bash
