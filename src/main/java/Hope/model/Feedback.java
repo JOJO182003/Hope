@@ -8,8 +8,16 @@ import org.hibernate.annotations.OnDeleteAction;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/*@Entity
+@Table(name = "feedback", schema = "hope")*/
 @Entity
-@Table(name = "feedback", schema = "hope")
+@Table(name = "feedback")
+@NamedQueries({
+    @NamedQuery(
+        name = "Feedback.findAllByToolId",
+        query = "SELECT f FROM Feedback f WHERE f.tool.id = :toolId"
+    )
+})
 public class Feedback {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
