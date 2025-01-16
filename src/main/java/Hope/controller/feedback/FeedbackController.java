@@ -29,3 +29,29 @@ public class FeedbackController {
         return "redirect:/details/" + id;
     }
 }
+
+
+/*
+    @PostMapping("/addComment/{id}")
+    public String addComment(@PathVariable int id, String comment, Principal principal, RedirectAttributes redirectAttributes) {
+        if (principal == null) {
+            redirectAttributes.addFlashAttribute("error", "Veuillez vous connecter pour ajouter un commentaire.");
+            return "redirect:/login";
+        }
+        try {
+            User user = homeService.getUser(principal.getName());
+            feedbackService.addComment(id, user, comment);
+            redirectAttributes.addFlashAttribute("success", "Commentaire ajouté avec succès.");
+            return "redirect:/details/" + id;
+        } catch (FeedbackNotFoundException ex) {
+            redirectAttributes.addFlashAttribute("error", ex.getMessage());
+            return "redirect:/error";
+        } catch (UnauthorizedException ex) {
+            redirectAttributes.addFlashAttribute("error", ex.getMessage());
+            return "redirect:/login";
+        } catch (Exception ex) {
+            redirectAttributes.addFlashAttribute("error", "Une erreur inattendue s'est produite.");
+            return "redirect:/error";
+        }
+    }
+*/
