@@ -19,6 +19,15 @@ public class FeedbackService {
 
     @Transactional
     public void addComment(int id, User user, String comment) {
+        /*
+        if (user == null) {
+            throw new UnauthorizedException("Utilisateur non authentifié.");
+        }
+        Optional<Feedback> feedback = feedbackRepository.findById(id);
+        if (feedback.isEmpty()) {
+            throw new FeedbackNotFoundException("Commentaire introuvable pour l'ID : " + id);
+        }
+        */
         feedbackRepository.addComment(user.getId(), id, comment);
     }
 
@@ -26,3 +35,6 @@ public class FeedbackService {
         return feedbackRepository.findAllByToolId(id);
     }
 }
+
+
+
