@@ -85,7 +85,7 @@ L’application est accessible via une URL publique. Vous pouvez tester toutes s
    ```
 3. Configurez votre base de données MariaDB avec le fichier SQL fourni :
    ```bash
-   mysql -u root -p <hope_schema.sql>
+   mysql -u root -p <Base.sql>
    ```
 
 ### Lancement
@@ -97,14 +97,14 @@ L’application est accessible via une URL publique. Vous pouvez tester toutes s
 
 ### Comptes de test
 - **Administrateur**:
-    - Login: `admin@hope.edu`
-    - Mot de passe: `admin123`
+    - Login: `admin1`
+    - Mot de passe: `123`
 - **Enseignant**:
-    - Login: `teacher@hope.edu`
-    - Mot de passe: `teacher123`
+    - Login: `enseignant1`
+    - Mot de passe: `123`
 - **Étudiant**:
-    - Login: `student@hope.edu`
-    - Mot de passe: `student123`
+    - Login: `etudiant1`
+    - Mot de passe: `123`
 
 ## Technologies Utilisées
 - **Java** : JDK 17 ou supérieur
