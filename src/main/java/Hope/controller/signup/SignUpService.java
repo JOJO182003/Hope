@@ -47,3 +47,40 @@ public class SignUpService {
     }
 
 }
+
+
+/*
+@Service
+public class SignUpService {
+
+    private final UserRepository userRepository;
+    private final BCryptPasswordEncoder passwordEncoder;
+
+    @Autowired
+    public SignUpService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = new BCryptPasswordEncoder();
+    }
+
+    @Transactional
+    public void signUp(String username, String password, String firstName, String lastName) {
+        if (username == null || username.isEmpty() ||
+                password == null || password.isEmpty() ||
+                firstName == null || firstName.isEmpty() ||
+                lastName == null || lastName.isEmpty()) {
+            throw new InvalidInputException("Invalid input provided.");
+        }
+
+        if (userRepository.findUserByUsername(username).isPresent()) {
+            throw new UserAlreadyExistsException("User already exists with username: " + username);
+        }
+
+        String encodedPassword = passwordEncoder.encode(password);
+        userRepository.insertUser(username, encodedPassword, firstName, lastName);
+
+        if (!userRepository.findUserByUsername(username).isPresent()) {
+            throw new RuntimeException("User not inserted with username: " + username);
+        }
+    }
+}
+*/
